@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito con objetos</title>
+    <title>Carrito con Objetos</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="row">
         <div class="col-lg-12">
-            <img src="moe.jpg" class="img-responsive center-block d-block mx-auto">
+            <img src="moe.jpg" style="max-width:20%;" class="img-responsive center-block d-block mx-auto" alt="Sample Image">
         </div>
     </div>
 
@@ -22,76 +23,46 @@
             <article class="col-sm-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Cóctel 🍸</h3>
-                        <p class="lead">$100</p>
-                        <button class="btn btn-primary" data-id="1" data-bebida="Cóctel 🍸" data-precio="100"> Agregar</button>
+                        <h5 class="card-title">Cóctel 🍸</h5>
+                        <button class="btn btn-primary" data-id="1" data-bebida="Cóctel 🍸">Agregar</button>
                     </div>
                 </div>
             </article>
-
             <article class="col-sm-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Cerveza 🍺</h3>
-                        <p class="lead">$200</p>
-                        <button class="btn btn-primary" data-id="2" data-bebida="Cerveza 🍺" data-precio="200">Agregar</button>
+                        <h5 class="card-title">Cerveza 🍺</h5>
+                        <button class="btn btn-primary" data-id="2" data-bebida="Cerveza 🍺">Agregar</button>
                     </div>
                 </div>
             </article>
-
             <article class="col-sm-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Vino 🍷</h3>
-                        <p class="lead">$300</p>
-                        <button class="btn btn-primary" data-id="3" data-bebida="Vino 🍷" data-precio="300">Agregar</button>
+                        <h5 class="card-title">Vino 🍷</h5>
+                        <button class="btn btn-primary" data-id="3" data-bebida="Vino 🍷">Agregar</button>
                     </div>
                 </div>
             </article>
-
-            <section class="container mt-3">
-                <table class="table table-striped" id="header">
-                    <tbody id="carrito">
-                    </tbody>
-                </table>
-            </section>
-
-            <template id="templateHeader">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Total</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-            </template>
-
-            <template id="template">
-                <tr>
-                    <td id="producto"></td>
-                    <td id="cantidad"></td>
-                    <td id="total">$<span></span></td>
-                    <td>
-                        <button id="btnAumentar" class="btn btn-sm btn-success">+</button>
-                        <button id="btnDisminuir" class="btn btn-sm btn-danger">-</button>
-                    </td>
-                </tr>
-            </template>
-
-            <footer id="footer" class="container mt-3">
-                <template id="templateFooter">
-                    <div class="card">
-                        <div class="card-body d-flex justify-content-between align-items-center">
-                            <p class="lead mb-0">TOTAL: $<span>0</span></p>
-                            <button id="btnFinalizar" class="btn btn-outline-primary">Finalizar Compra</button>
-                        </div>
-                    </div>
-                </template>
-            </footer>
-
         </div>
     </main>
+
+    <section class="container mt-3">
+        <ul class="list-group" id="carrito">
+            <!--li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="lead">items</span>
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li-->
+        </ul>
+    </section>
+
+    <template id="template">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span class="lead">items</span>
+            <span class="badge bg-primary rounded-pill">0</span>
+        </li>
+    </template>
+
     <script src="script.js"></script>
 </body>
 
