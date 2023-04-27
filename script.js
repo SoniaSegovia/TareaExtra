@@ -20,9 +20,8 @@ document.addEventListener("click", (e) => {
 
     if (e.target.matches("#btnDisminuir")) {
         btnDisminuir(e)
-    }
-    //al hacer click al boton finalizar compra llamo la funcion de finalizarcompra()
-    if(e.target.matches("#btnFinalizar")){
+
+    }    if(e.target.matches("#btnFinalizar")){
         finalizarCompra()
     }
 })
@@ -106,32 +105,26 @@ const mostrarHeaderFooter = (
 }
 
 const finalizarCompra = () =>{
-    //recorro los botones como un array y les asigno a cada uno con la propiedad .className el nombre de la clase disabled para deshabilitarlos
+    
     for(var i = 0; i < botones.length; i++)
-    botones[i].className += " disabled";
-
-    //obtengo todos los botones de aumentar y disminuir como un array 
-    const btnAumentarDisminuir = carrito.querySelectorAll("button")
-
-    //recorro los botones aumentar y disminuir y les asigno a cada uno con la propiedad .className el nombre de la clase disabled para deshabilitarlos 
+    botones[i].className += " disabled";   const btnAumentarDisminuir = carrito.querySelectorAll("button")
     for(var i = 0; i < btnAumentarDisminuir.length; i++){
     btnAumentarDisminuir[i].className += " disabled";
     }
-    
-    //obtengo el total y la cantidad de la compra  
-    const totalCompra = carritoArray.reduce((acc,current) => acc + current.precio * current.cantidad, 0)
+
+ const totalCompra = carritoArray.reduce((acc,current) => acc + current.precio * current.cantidad, 0)
     const cantidadCompra = carritoArray.reduce((acc,current) =>acc+current.cantidad ,0)
 
-    // duplico el template para insertar el total y cantidad al finalizar la compra
+
     const clone = template.content.cloneNode(true)
     clone.querySelector("#cantidad").textContent = cantidadCompra
     clone.querySelector("#total span").textContent = totalCompra
-    //creo el html con el fragment
+
     fragment.appendChild(clone)
-    //se crea la fila en el tbody
+
     carrito.appendChild(fragment)
-    //obtengo los botones ultimos aunmentar y disminuir en totales y cantidad para eliminarlo 
+
     carrito.children[carrito.children.length-1].children[3].innerHTML=""
-    //Deshabilito el boton finalizar compra
+    
     document.getElementById("btnFinalizar").className+=" disabled"
 }
